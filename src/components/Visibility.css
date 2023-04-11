@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  flex-direction: column;
+}
+
+.button-clear {
+  background-color: #EA4C89;
+  border-radius: 5px;
+  border-style: none;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 200;
+  height: 35px;
+  line-height: 15px;
+  padding: 10px 12px;
+}
+
+.button-clear:hover{
+  background-color: #F082AC;
+}

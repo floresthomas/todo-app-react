@@ -1,22 +1,26 @@
-const TaskTable = ({ tasks }) => {
+import TaskRow from "./TaskRow";
+import "./Table.css";
+
+const TaskTable = ({ tasks, toggleTask, showCompleted = false }) => {
+  const taskTableRows = (doneValue) => {
+    return tasks
+      .filter((task) => task.done === doneValue)
+      .map((task) => (
+        <TaskRow task={task} key={task.name} toggleTask={toggleTask} />
+      ));
+  };
+
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>Tasks</th>
-        </tr>
-      </thead>
-      <tbody>
-        {tasks.map((task) => (
-          <tr key={task.name}>
-            <td>
-              {task.name}
-              <input type="checkbox" value={task.done} />
-            </td>
+    <div className="table">
+      <table>
+        <thead>
+          <tr>
+            <th>Tasks</th>
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>{taskTableRows(showCompleted)}</tbody>
+      </table>
+    </div>
   );
 };
 
